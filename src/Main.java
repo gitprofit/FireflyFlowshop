@@ -5,6 +5,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		System.out.println("sfsdfd");
+		
 		ISolverInput input = new SolverInput();
 		input.setParam("machinesCount", 8);
 		input.setParam("jobsCount", 10);
