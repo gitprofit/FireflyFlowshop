@@ -1,5 +1,6 @@
+package firefly;
 
-public class Firefly {
+class Firefly {
 	
 	private JobShop jobShop;
 	private JobOrder order;

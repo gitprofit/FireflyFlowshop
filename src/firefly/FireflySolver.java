@@ -1,23 +1,27 @@
+package firefly;
 
 import java.util.*;
+import flowshop.*;
+import flowshop.util.TestInstance;
 
 public class FireflySolver implements ISolver {
 	
 	private JobShop jobShop;
 	private List<Firefly> fireflies;
+	private TestInstance test;
 	
 	public FireflySolver() { }
 	
 	private void initialize(ISolverInput input) {
 		
-		int machinesCount = (int) input.getParam("machinesCount");
-		int jobsCount = (int) input.getParam("jobsCount");
+		test = input.getTestInstance();
+
 		int firefliesCount = (int) input.getParam("firefliesCount");
 		
 		double absorption = (double) input.getParam("absorption");
 		double maxRandomStep = (double) input.getParam("maxRandomStep");
-		
-		jobShop = new JobShop(machinesCount, jobsCount);
+
+		jobShop = new JobShop(test);
 		
 		fireflies = new ArrayList<>();
 		for(int i=0; i<firefliesCount; ++i)
@@ -51,6 +55,10 @@ public class FireflySolver implements ISolver {
 		out.setOrder(bestOrder.toList());
 		out.setMakespan(bestResult);
 		out.setIterations(iterations);
+		
+		JobOrder def = new JobOrder(test.getNumOfJobs());
+		System.out.println("order: " + Arrays.toString(def.toList().toArray()));
+		System.out.println("makespan: " + jobShop.getMakespan(def));
 		
 		return out;
 	}

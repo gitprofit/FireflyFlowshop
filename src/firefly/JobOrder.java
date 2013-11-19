@@ -1,7 +1,8 @@
+package firefly;
 
 import java.util.*;
 
-public class JobOrder {
+class JobOrder {
 	
 	private List<Integer> order;
 	

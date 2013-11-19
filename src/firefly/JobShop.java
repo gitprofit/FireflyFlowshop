@@ -1,18 +1,23 @@
+package firefly;
 
 import java.util.*;
+import flowshop.util.TestInstance;
 
-public class JobShop {
+class JobShop {
 	
 	private int machines;
 	private List<Job> jobs;
 	
-	public JobShop(int machinesCount, int jobsCount) {
+	public JobShop(TestInstance test) {
 		
-		machines = machinesCount;
+		int machNum = test.getNumOfMachines();
+		int jobNum = test.getNumOfJobs();
+		
+		machines = machNum;
 		jobs = new ArrayList<>();
 		
-		for(int i=0; i<jobsCount; ++i)
-			jobs.add(new Job(machinesCount));
+		for(int i=0; i<jobNum; ++i)
+			jobs.add(new Job(test.getTimes()[i]));
 	}
 	
 	public JobOrder createOrder() {

@@ -1,16 +1,17 @@
+package firefly;
 
 import java.util.*;
 
-public class Job {
+class Job {
 	
 	private List<Integer> processingTimes;
 	
-	public Job(int machinesConut) {
+	public Job(int[] times) {
 		
 		processingTimes = new ArrayList<>();
 		
-		for(int i=0; i<machinesConut; ++i)
-			processingTimes.add(Random.fromRange(1, 10));
+		for(int i=0; i<times.length; ++i)
+			processingTimes.add(times[i]);
 	}
 	
 	public int getTime(int machineNumber) {
