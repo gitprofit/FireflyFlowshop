@@ -1,5 +1,7 @@
 package firefly;
 
+import java.util.Arrays;
+
 class Firefly {
 	
 	private JobShop jobShop;
@@ -41,6 +43,10 @@ class Firefly {
 	
 	public void moveToOther(Firefly other) {
 		
+		
+		//System.out.println("order: " + Arrays.toString(order.toList().toArray()));
+		
+		
 		double[][] currentPriorities = order.getPriorities();
 		double[][] otherPriorities = other.order.getPriorities();
 		
@@ -58,6 +64,9 @@ class Firefly {
 						+ maxRandStep * (Math.random() - 0.5);
 		
 		order.updateByPriorities(currentPriorities);
+		
+		//System.out.println("order: " + Arrays.toString(order.toList().toArray()));
+		//System.out.println();
 	}
 	
 	public void moveRandomly() {

@@ -27,9 +27,13 @@ public class Main {
 		
 		ISolverInput input = new SolverInput();
 		input.setTestInstance(inst);
-		input.setParam("firefliesCount", 20);
-		input.setParam("absorption", 0.002);
-		input.setParam("maxRandomStep", 2.0);
+		input.setParam("firefliesCount", 50);
+		//input.setParam("absorption", 0.0000002);
+		//input.setParam("maxRandomStep", 10.0);
+		input.setParam("iterations", 100);
+		
+		input.setParam("absorption", 0.00002);
+		input.setParam("maxRandomStep", 3.0);
 		
 		FireflySolver solver = new FireflySolver();
 		ISolverOutput solution = solver.solve(input);

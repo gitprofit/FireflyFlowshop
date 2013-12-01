@@ -35,14 +35,14 @@ public class FireflySolver implements ISolver {
 		int bestResult = Integer.MAX_VALUE;
 		JobOrder bestOrder = null;
 		
-		int iterations = 20;
-		// jakis warunek stopu trzeba
-		// albo pobrac to z input
+		int iterations = (int) input.getParam("iterations");
 		
 		for(int i=0; i<iterations; ++i) {
 			
 			JobOrder order = performIteration();
 			int result = jobShop.getMakespan(order);
+			
+			//System.out.println("makespan: " + result);
 			
 			if(result < bestResult) {
 				bestResult = result;
@@ -78,6 +78,9 @@ public class FireflySolver implements ISolver {
 				if(currentFirefly.isLessAttractiveThan(otherFirefly)) {
 					currentMoved = true;
 					currentFirefly.moveToOther(otherFirefly);
+				}
+				else {
+					//System.out.println("kurwa mac");
 				}
 				
 			}

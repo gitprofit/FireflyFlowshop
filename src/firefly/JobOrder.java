@@ -49,6 +49,10 @@ class JobOrder {
 			newOrder[pos] = i;
 			skipThis.add(pos);
 		}
+		
+		for(int i=0; i<dim; ++i) {
+			order.set(i, newOrder[i]);
+		}
 	}
 	
 	private int getMaxPosition(double[] data, List<Integer> skipThis) {
